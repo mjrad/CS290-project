@@ -1,1 +1,30 @@
-
+{
+  "name": "CS290-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "buildMain": "handlebars views/partials/post.handlebars -f public/postTemplate.handlebars",
+    "build404": "handlebars views/partials/404.handlebars -f public/404Template.handlebars",
+    "buildBasic": "handlebars views/layouts/basic.handlebars -f public/basicTemplate.handlebars",
+    "prestart": "npm run buildMain && npm run buildBasic && npm run build404"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osu-cs290-sp20/CS290.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "handlebars": "^4.7.6"
+  },
+  "devDependencies": {}
+}
