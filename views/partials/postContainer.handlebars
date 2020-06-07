@@ -1,8 +1,41 @@
-postContainer.handlebars
 <main class="post-container">
 
-{{#each totalPost}}
-     {{ >post}}
+{{#each data}}
+     {{> post}}
 {{/each}}
 
-    </main>
+</main>
+
+<button type="button" id="create-post-button"><i class="fas fa-camera"></i></button>
+
+<div id="modal-backdrop" class="hidden"></div>
+<div id="create-post-modal" class="hidden">
+  <div class="modal-dialog">
+
+    <div class="modal-header">
+      <h3>Create a Post</h3>
+      <button type="button" class="modal-close-button">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="post-input-element">
+        <label for="post-author-input">Author</label>
+        <input type="text" id="post-author-input">
+      </div>
+      <div class="post-input-element">
+        <label for="post-image-input">Image Link</label>
+        <input type="text" id="post-image-input">
+      </div>
+      <div class="post-input-element">
+        <label for="post-text-input">Post Caption</label>
+        <textarea id="post-text-input"></textarea>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="modal-cancel-button">Cancel</button>
+      <button type="button" class="modal-accept-button">Create Post</button>
+    </div>
+
+  </div>
+</div>
