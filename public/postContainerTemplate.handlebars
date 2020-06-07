@@ -1,0 +1,24 @@
+(function() {
+  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['postContainer'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return ((stack1 = container.invokePartial(lookupProperty(partials,"post"),depth0,{"name":"post","data":data,"indent":"     ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<main class=\"post-container\">\n\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"data") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":3,"column":0},"end":{"line":5,"column":9}}})) != null ? stack1 : "")
+    + "\n</main>\n\n<button type=\"button\" id=\"create-post-button\"><i class=\"fas fa-camera\"></i></button>\n\n<div id=\"modal-backdrop\" class=\"hidden\"></div>\n<div id=\"create-post-modal\" class=\"hidden\">\n  <div class=\"modal-dialog\">\n\n    <div class=\"modal-header\">\n      <h3>Create a Post</h3>\n      <button type=\"button\" class=\"modal-close-button\">&times;</button>\n    </div>\n\n    <div class=\"modal-body\">\n      <div class=\"post-input-element\">\n        <label for=\"post-author-input\">Author</label>\n        <input type=\"text\" id=\"post-author-input\">\n      </div>\n      <div class=\"post-input-element\">\n        <label for=\"post-image-input\">Image Link</label>\n        <input type=\"text\" id=\"post-image-input\">\n      </div>\n      <div class=\"post-input-element\">\n        <label for=\"post-text-input\">Post Caption</label>\n        <textarea id=\"post-text-input\"></textarea>\n      </div>\n    </div>\n\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"modal-cancel-button\">Cancel</button>\n      <button type=\"button\" class=\"modal-accept-button\">Create Post</button>\n    </div>\n\n  </div>\n</div>\n";
+},"usePartial":true,"useData":true});
+})();

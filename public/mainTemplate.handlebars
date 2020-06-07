@@ -1,0 +1,17 @@
+(function() {
+  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['main'] = template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<!DOCTYPE html>\n<html>\n  <head>\n\n    <meta charset=\"utf-8\">\n    <title>Spontanigram</title>\n\n    <!-- This is a 3rd-party stylesheet to make available the font family to be used for this page (\"Roboto\"). -->\n    <!-- Probably going to be changed in the future.-->\n    <link href=\"https://fonts.googleapis.com/css?family=Roboto:100,400,700\" rel=\"stylesheet\">\n\n    <!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->\n    <!-- Probably going to be changed in the future.-->\n    <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.13.0/css/all.css\" crossorigin=\"anonymous\">\n\n    <link rel=\"stylesheet\" href=\"style.css\" media=\"screen\">\n\n    <script src=\"index.js\" charset=\"utf-8\" defer></script>\n\n  </head>\n\n  <body>\n\n    "
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"header") || (depth0 != null ? lookupProperty(depth0,"header") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"header","hash":{},"data":data,"loc":{"start":{"line":24,"column":4},"end":{"line":24,"column":16}}}) : helper))) != null ? stack1 : "")
+    + "\n\n   "
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"body") || (depth0 != null ? lookupProperty(depth0,"body") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"body","hash":{},"data":data,"loc":{"start":{"line":26,"column":3},"end":{"line":26,"column":13}}}) : helper))) != null ? stack1 : "")
+    + "\n\n  </body>\n\n</html>\n";
+},"useData":true});
+})();

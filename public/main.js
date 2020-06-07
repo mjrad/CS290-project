@@ -1,7 +1,33 @@
 
+/*
+READY ONCE WE HAVE COMMENT HTML
+function insertNewComment(post, commentTxt){
+
+  commentContext = {
+    txt: commentTxt
+  };
+
+  var commentHtml = Handlebars.templates.comment(commentContext);
+
+  var commentPost = document.getElementsByClassName('post')[i];
+  commentPost = insertAdjacentHTML('beforeend', commentHtml);
+}
+*/
+
 function insertNewPost(postAuthor, postURL, postCaption) {
 
+  postContext = {
+    postAuth: postAuthor,
+    postImage: postURL,
+    postCap: postCaption
+  };
 
+  var postHtml = Handlebars.templates.post(postContext);
+
+  var postContainer = document.querySelector('main.post-container');
+  postContainer.insertAdjacentHTML('beforeend', postHtml);
+
+  /*
   var postElem = document.createElement('article');
   postElem.classList.add('post');
 
@@ -15,25 +41,28 @@ function insertNewPost(postAuthor, postURL, postCaption) {
   postElem.appendChild(postContentElem);
 
   var postAuthorNode = document.createTextNode(postAuthor);
-  var postAuthorElem.document.createElement('p');
+  var postAuthorElem = document.createElement('p');
   postAuthorElem.classList.add('post-author');
   postAuthorElem.appendChild(postAuthorNode);
   postContentElem.appendChild(postAuthorElem);
 
   var postURLNode = document.createElement('img');
   postURLNode.src = postURL;
-  var postURLElem.document.createElement('div');
+  var postURLElem = document.createElement('div');
   postURLElem.classList.add('post-image');
   postURLElem.appendChild(postURLNode);
-  postContentElem.appendChild(postCaptionElem);
+  postContentElem.appendChild(postURLElem);
 
   var postCaptionNode = document.createTextNode(postCaption);
-  var postCaptionElem.document.createElement('p');
+  postCaption.text = postCaption;
+  var postCaptionElem = document.createElement('p');
   postCaptionElem.classList.add('post-caption');
   postCaptionElem.appendChild(postCaptionNode);
   postContentElem.appendChild(postCaptionElem);
 
-  document.appendChild(postElem);
+  var postContainer = document.querySelector('main.post-container');
+  postContainer.appendChild(postElem);
+  */
 }
 
 var allPosts = [];
@@ -95,7 +124,7 @@ function postMatchesSearch(post, searchQuery) {
     return true;
   }
   searchQuery = searchQuery.trim().toLowerCase();
-  return (post.author + " " + post.url + " " + post.caption + " ").toLowerCase().indexOf(searchQuery) >= 0;
+  return (post.author + " " + post.url + " " + post.caption).toLowerCase().indexOf(searchQuery) >= 0;
 }
 
 function doSearchUpdate() {
@@ -120,7 +149,7 @@ function parsePostElem(postElem) {
 
   var post = {};
 
-  var postAuthorElem = postElem.querySelector('.post-author a');
+  var postAuthorElem = postElem.querySelector('.post-author');
   post.author = postAuthorElem.textContent.trim();
 
   var postURLElem = postElem.querySelector('.post-image');
@@ -128,13 +157,15 @@ function parsePostElem(postElem) {
 
   var postCaptionElem = postElem.querySelector('.post-caption');
   post.caption = postAuthorElem.textContent.trim();
+
+  return post;
 }
 
 window.addEventListener('DOMContentLoaded', function () {
 
   var postElemsCollection = document.getElementsByClassName('post');
   for (var i = 0; i < postElemsCollection.length; i++) {
-    allPosts.push(parsePostElem(postElemsCollection));
+    allPosts.push(parsePostElem(postElemsCollection[i]));
   }
 
   var createPostButton = document.getElementById('create-post-button');

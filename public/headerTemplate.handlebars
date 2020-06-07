@@ -1,0 +1,6 @@
+(function() {
+  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['header'] = template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<header>\n      <!-- The <i> tag below includes the bullhorn icon from Font Awesome -->\n      <!-- Probably going to be changed in the future.-->\n      <a href=\"#\"><h1 class=\"site-title\"><i class=\"fa fa-camera-retro\"></i> spontanigram</h1></a>\n\n      <nav class=\"navbar\">\n        <ul class=\"navlist\">\n           <!-- Used to navigate to top of page.--> \n          <li class=\"navitem navlink active\"><a href=\"#\">Home</a></li>\n          <li class=\"navitem navbar-search\">\n            <input type=\"text\" id=\"navbar-search-input\" placeholder=\"Search...\">\n            <button type=\"button\" id=\"navbar-search-button\"><i class=\"fas fa-search\"></i></button>\n          </li>\n        </ul>\n      </nav>\n    </header>\n";
+},"useData":true});
+})();
