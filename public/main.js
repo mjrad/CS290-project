@@ -1,10 +1,8 @@
-
-/*
-READY ONCE WE HAVE COMMENT HTML
-function insertNewComment(post, commentTxt){
+function insertNewComment(post, commentTxt, commentAuthor){
 
   commentContext = {
-    txt: commentTxt
+    text: commentTxt,
+    author: commentAuthor
   };
 
   var commentHtml = Handlebars.templates.comment(commentContext);
@@ -12,7 +10,6 @@ function insertNewComment(post, commentTxt){
   var commentPost = document.getElementsByClassName('post')[i];
   commentPost = insertAdjacentHTML('beforeend', commentHtml);
 }
-*/
 
 function insertNewPost(postAuthor, postURL, postCaption) {
 
@@ -66,6 +63,7 @@ function insertNewPost(postAuthor, postURL, postCaption) {
 }
 
 var allPosts = [];
+var allComments[];
 
 function modalAcceptClick() {
 
@@ -85,10 +83,53 @@ function modalAcceptClick() {
   }
 }
 
+function comModalAcceptClick(postNum) {
+
+  var commentTxt = document.getElementById('comment-text-input').value;
+  var commentauthor = document.getElementById('comment-author-input').value;
+
+  if (commentTxt && commentAuthor) {
+
+    allComments[postNum].push({
+      commentText: commentTxt,
+      commentAuthor: commentAuthor
+    });
+  } else {
+    alert('Cannot upload an incomplete comment!')
+  }
+}
+
 function clearSearch() {
 
   document.getElementById('navbar-search-input').value = "";
   doSearchUpdate();
+}
+
+function showCommentModal() {
+
+  var modalBackdrop = document.getElementById('modal-backdrop');
+  var createCommentModal = document.getElementById('create-comment-modal');
+
+  modalBackdrop.classList.remove('hidden');
+  createCommentModal.classList.remove('hidden');
+}
+
+function clearCommentInputValues() {
+
+  var commentInputElems = document.getElementsByClassName('comment-input-element');
+  for (var i = 0; i < commentInputElems.length; i++) {
+    var input = commentInputElems[i].querySelector('input, textarea');
+    input.value = '';
+  }
+}
+
+function hideCommentModal() {
+
+  var modalBackdrop = document.getElementById('modal-backdrop');
+  var createCommentModal = document.getElementById('create-comment-modal');
+
+  modalBackdrop.classList.add('hidden');
+  createCommentModal.classList.add('hidden');
 }
 
 function showPostModal() {
@@ -196,6 +237,24 @@ window.addEventListener('DOMContentLoaded', function () {
   var searchInput = document.getElementById('navbar-search-input');
   if (searchInput) {
     searchInput.addEventListener('input', doSearchUpdate);
+  }
+
+  var comModalCloseButton = document.querySelector('#create-comment-modal .com-modal-close-button');
+  if (comModalCloseButton) {
+    comModalCloseButton.addEventListener('click', hidePostModal);
+  }
+
+  var comModalCancelButton = document.querySelector('#create-comment-modal .com-modal-cancel-button');
+  if (modalCancelButton) {
+    comModalCancelButton.addEventListener('click', hidePostModal);
+  }
+
+  var comModalAcceptButton = document.querySelector('#create-comment-modal .com-modal-accept-button');
+  if (comModalAcceptButton) {
+    var buttons = document.getElementsByTagName('button');
+    for (var i = 0; i < buttons.length; i++){
+      comModalAcceptButton.addEventListener('click', comModalAcceptClick(i).bind(null, i));
+    }
   }
 
 });

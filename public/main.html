@@ -110,6 +110,32 @@
       </div>
     </div>
 
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="create-comment-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Comment on a Post</h3>
+          <button type="button" class="com-modal-close-button">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="comment-input-element">
+            <label for="comment-text-input">Comment Text</label>
+            <textarea id="comment-text-input"></textarea>
+          </div>
+          <div class="comment-input-element">
+            <label for="comment-author-input">Author</label>
+            <input type="text" id="comment-author-input">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="com-modal-cancel-button">Cancel</button>
+          <button type="button" class="com-modal-accept-button">Create Post</button>
+        </div>
+      </div>
+    </div>
   </body>
 
 </html>
