@@ -17,14 +17,14 @@ templates['post'] = template({"1":function(container,depth0,helpers,partials,dat
         return undefined
     };
 
-  return " <article class=\"post\">\n        <div class=\"post-icon\">\n          <!-- Probably going to be changed in the future.-->\n          <i class=\"fas fa-camera\"></i>\n        </div>\n        <p class=\"post-author\">\n            "
+  return "      <article class=\"post\">\n        <div class=\"post-icon\">\n          <!-- Probably going to be changed in the future.-->\n          <i class=\"fas fa-camera\"></i>\n        </div>\n        <p class=\"post-author\">\n            "
     + alias4(((helper = (helper = lookupProperty(helpers,"author") || (depth0 != null ? lookupProperty(depth0,"author") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"author","hash":{},"data":data,"loc":{"start":{"line":7,"column":12},"end":{"line":7,"column":22}}}) : helper)))
-    + "\n        </p>\n        <div class=\"post-content\">\n          <div class=\"post-image\">\n             <img src=\""
-    + alias4(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":11,"column":23},"end":{"line":11,"column":30}}}) : helper)))
+    + "\n        </p>\n        <div class=\"delete\">\n          <button type=\"button\" id=\"delete-\"><i class=\"fa fa-trash\"></i></button>\n        </div>\n        <div class=\"post-content\">\n          <div class=\"post-image\">\n             <img src=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":14,"column":23},"end":{"line":14,"column":30}}}) : helper)))
     + "\" >\n          </div>\n          <p class=\"post-caption\">\n            "
-    + alias4(((helper = (helper = lookupProperty(helpers,"caption") || (depth0 != null ? lookupProperty(depth0,"caption") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"caption","hash":{},"data":data,"loc":{"start":{"line":14,"column":12},"end":{"line":14,"column":23}}}) : helper)))
+    + alias4(((helper = (helper = lookupProperty(helpers,"caption") || (depth0 != null ? lookupProperty(depth0,"caption") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"caption","hash":{},"data":data,"loc":{"start":{"line":17,"column":12},"end":{"line":17,"column":23}}}) : helper)))
     + "\n          </p>\n        </div>\n        <div class=\"like\">\n          <button type=\"button\" id=\"comment-expand-button\"><i class=\"fa fa-heart\"></i></button>\n        </div>\n        <div class=\"comments-section\">\n          <button type=\"button\" id=\"comment-expand-button\"><i class=\"fa fa-comments\"></i></button>\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"data") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":22,"column":10},"end":{"line":24,"column":19}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"data") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":25,"column":10},"end":{"line":27,"column":19}}})) != null ? stack1 : "")
     + "          <button type=\"button\" id=\"comment-respond-button\"><i class=\"fa fa-comment\"></i></button>\n        </div>\n      </article>\n";
 },"usePartial":true,"useData":true});
 })();

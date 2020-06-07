@@ -14,9 +14,9 @@ function insertNewComment(post, commentTxt, commentAuthor){
 function insertNewPost(postAuthor, postURL, postCaption) {
 
   postContext = {
-    postAuth: postAuthor,
-    postImage: postURL,
-    postCap: postCaption
+    author: postAuthor,
+    url: postURL,
+    caption: postCaption
   };
 
   var postHtml = Handlebars.templates.post(postContext);
@@ -62,8 +62,15 @@ function insertNewPost(postAuthor, postURL, postCaption) {
   */
 }
 
+
+function deletePost(){
+  console.log('You Pressed DELETE POST');
+  var thisPost = allPosts.length-1;
+  document.removeChild(allPosts[thisPost]);
+}
+
 var allPosts = [];
-var allComments[];
+var allComments = [];
 
 function modalAcceptClick() {
 
@@ -78,6 +85,9 @@ function modalAcceptClick() {
       url: postURL,
       caption: postCaption
     });
+
+    clearSearch();
+    hidePostModal();
   } else {
     alert('Cannot upload an incomplete post!')
   }
@@ -95,7 +105,7 @@ function comModalAcceptClick(postNum) {
       commentAuthor: commentAuthor
     });
   } else {
-    alert('Cannot upload an incomplete comment!')
+    //alert('Cannot upload an incomplete comment!')
   }
 }
 
@@ -106,12 +116,22 @@ function clearSearch() {
 }
 
 function showCommentModal() {
-
   var modalBackdrop = document.getElementById('modal-backdrop');
   var createCommentModal = document.getElementById('create-comment-modal');
 
   modalBackdrop.classList.remove('hidden');
   createCommentModal.classList.remove('hidden');
+}
+
+function toggleComments() {
+  console.log('button pressed');
+  var toggle = document.getElementsByClassName('comments-section');
+  if (toggle.classList.contains('hidden')) {
+    toggle.classList.remove('hidden')
+  }
+  else {
+    toggle.classList.add('hidden')
+  }
 }
 
 function clearCommentInputValues() {
@@ -133,8 +153,7 @@ function hideCommentModal() {
 }
 
 function showPostModal() {
-
-  var modalBackdrop = document.getElementById('modal-backdrop');
+  var modalBackdrop = document.getElementById('post-modal-backdrop');
   var createPostModal = document.getElementById('create-post-modal');
 
   modalBackdrop.classList.remove('hidden');
@@ -151,8 +170,7 @@ function clearPostInputValues() {
 }
 
 function hidePostModal() {
-
-  var modalBackdrop = document.getElementById('modal-backdrop');
+  var modalBackdrop = document.getElementById('post-modal-backdrop');
   var createPostModal = document.getElementById('create-post-modal');
 
   modalBackdrop.classList.add('hidden');
@@ -239,22 +257,36 @@ window.addEventListener('DOMContentLoaded', function () {
     searchInput.addEventListener('input', doSearchUpdate);
   }
 
+  for (var i = 0; i < allPosts.length; i++){
+    var comRespond = allPosts[i].getElementById('comment-respond-button');
+    if (comRespond) {
+      comRespond.addEventListener('click', showCommentModal);
+    }
+
+    var expandComments = allPosts[i].getElementById('comment-expand-button');
+    if (expandComments) {
+      expandComments.addEventListener('click', toggleComments);
+    }
+  }
+
   var comModalCloseButton = document.querySelector('#create-comment-modal .com-modal-close-button');
   if (comModalCloseButton) {
-    comModalCloseButton.addEventListener('click', hidePostModal);
+    comModalCloseButton.addEventListener('click', hideCommentModal);
   }
 
   var comModalCancelButton = document.querySelector('#create-comment-modal .com-modal-cancel-button');
-  if (modalCancelButton) {
-    comModalCancelButton.addEventListener('click', hidePostModal);
+  if (comModalCancelButton) {
+    comModalCancelButton.addEventListener('click', hideCommentModal);
   }
 
   var comModalAcceptButton = document.querySelector('#create-comment-modal .com-modal-accept-button');
   if (comModalAcceptButton) {
-    var buttons = document.getElementsByTagName('button');
-    for (var i = 0; i < buttons.length; i++){
-      comModalAcceptButton.addEventListener('click', comModalAcceptClick(i).bind(null, i));
-    }
+      comModalAcceptButton.addEventListener('click', comModalAcceptClick);
+  }
+
+  var postDeleteButton = allPosts.getElementById('delete-post');
+  if(postDeleteButton) {
+    postDeleteButton.addEventListener('click', deletePost);
   }
 
 });
