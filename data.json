@@ -1,1 +1,29 @@
+[
+  {
+    "author": "Evets841",
+    "url": "test-Imgs/SteveBezek.jpg",
+    "caption": "Finished my first year at Berkeley. #GOBEARS",
+    "comments": [
+      {
+        "commentText": "Yay! Congrats!",
+        "commentAuthor": "A Friend"
+      },
+      {
+        "commentText": "Way to go!",
+        "commentAuthor": "Friend 2"
+      }
+    ]
+  },
 
+  {
+    "author": "test",
+    "url": "test-Imgs/SteveBezek.jpg",
+    "caption": "cloned post",
+    "comments": [
+      {
+        "commentText": "did it work?",
+        "commentAuthor": "tester"
+      }
+    ]
+  }
+]
