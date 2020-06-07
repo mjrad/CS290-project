@@ -1,0 +1,80 @@
+.site-title {
+	margin: 0; 
+	background-color: pink; 
+	font-weight: 200;
+	padding-top: 15px;
+	padding-bottom:15px;
+	font-size: 40px;
+	text-align: center;
+}
+
+body {
+	margin: 0;
+	margin-bottom: 0;
+	font-family: 'Helvetica Neue', sans-serif;
+}
+
+.navbar {
+	background-color: teal;
+	overflow: hidden;
+	padding-left: 15px; 
+}
+
+.navlist {
+	margin: 0;
+	padding: 0;
+}
+
+.navitem {
+	font-weight: 700;
+	display: inline-block; 
+	padding: 10px 20px;
+}
+
+.post-containter {
+	background-color: pink;
+	margin-bottom: 0;
+	border-bottom: 0;
+	padding-bottom: 0;
+	padding: 100px;
+	padding-top:100px;
+	min-width: 80%;
+	display: flex;
+	flex-wrap: center;
+}
+
+.post {
+	border-radius: 0; 
+	background-color: white;
+	border: 2px solid lightgrey;
+	padding-top: auto;
+	padding-bottom: 20px;
+	padding: auto;
+	margin: auto;
+	min-width: fit-content;
+	max-width: fit-content;
+	display: center; 
+}
+
+
+.post-author {
+	position: relative;
+	bottom: auto;
+	left 70px; 
+	margin-top: 8px;
+	text-allign: right;
+	font-weight: bold;
+}
+
+.post-icon {
+	position: relative;
+	bottom: auto;
+	left: auto;
+}
+
+.post-caption {
+    border-top: 2px solid lightgrey;
+    padding-bottom: 50px;
+    
+    
+}
