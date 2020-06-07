@@ -1,6 +1,7 @@
 .site-title {
 	margin: 0; 
-	background-color: pink; 
+	background-color: pink;
+	color: white; 
 	font-weight: 200;
 	padding-top: 15px;
 	padding-bottom:15px;
@@ -8,16 +9,29 @@
 	text-align: center;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none; 
+
+}
+
 body {
 	margin: 0;
 	margin-bottom: 0;
 	font-family: 'Helvetica Neue', sans-serif;
+    background-color: azure;
 }
 
 .navbar {
-	background-color: teal;
-	overflow: hidden;
-	padding-left: 15px; 
+	background-color: lightblue;
+	overflow: hidden; 
+	font-size: 25px;
+	text-align: center;
+	padding-left: 300px;
 }
 
 .navlist {
@@ -31,6 +45,28 @@ body {
 	padding: 10px 20px;
 }
 
+.navitem.navbar-search {
+    float: right; 
+}
+
+#navbar-search-input {
+  padding: 4px;
+  font-size: 16px;
+  background-color: #eee;
+  border: 1px solid #dadada;
+  border-radius: 2px;
+
+}
+
+#navbar-search-button {
+  margin-left: -5px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  color: #343434;
+  cursor: pointer;
+}
+
 .post-containter {
 	background-color: pink;
 	margin-bottom: 0;
@@ -41,6 +77,12 @@ body {
 	min-width: 80%;
 	display: flex;
 	flex-wrap: center;
+}
+
+.post-caption {
+    margin-top: -4px;
+    border-bottom: 2px solid lightgrey;
+    font-size: 20px;
 }
 
 .post {
@@ -78,3 +120,38 @@ body {
     
     
 }
+
+.comments-section  {
+    margin-top: 20px
+
+}
+
+#create-post-button {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    height: 60px;
+    width: 60px;
+    border: none;
+    border-radius: 30px;
+    font-size: 30px;
+    background-color: lightblue;
+    color: pink;
+    cursor: pointer;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+}
+
+.hidden {
+  display: none;
+}
+
