@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="style.css" media="screen">
 
-    <script src="index.js" charset="utf-8" defer></script>
+    <script src="main.js" charset="utf-8" defer></script>
 
   </head>
 
@@ -29,7 +29,7 @@
 
       <nav class="navbar">
         <ul class="navlist">
-           <!-- Used to navigate to top of page.--> 
+           <!-- Used to navigate to top of page.-->
           <li class="navitem navlink active"><a href="#">Home</a></li>
           <li class="navitem navbar-search">
             <input type="text" id="navbar-search-input" placeholder="Search...">
@@ -55,7 +55,7 @@
           </div>
           <p class="post-caption">
             Finished my first year at Berkeley. #GOBEARS
-          </p>  
+          </p>
         </div>
         <div class="like">
           <button type="button" id="comment-expand-button"><i class="fa fa-heart"></i></button>
@@ -79,7 +79,7 @@
     <button type="button" id="create-post-button"><i class="fas fa-camera"></i></button>
 
     <div id="modal-backdrop" class="hidden"></div>
-    <div id="create-twit-modal" class="hidden">
+    <div id="create-post-modal" class="hidden">
       <div class="modal-dialog">
 
         <div class="modal-header">
@@ -89,13 +89,13 @@
 
         <div class="modal-body">
           <div class="post-input-element">
-            <label for="post-attribution-input">Author</label>
-            <input type="text" id="post-attribution-input">
+            <label for="post-author-input">Author</label>
+            <input type="text" id="post-author-input">
           </div>
           <div class="post-input-element">
-            <label for="post-attribution-input">Image Link</label>
-            <input type="text" id="post-attribution-input">
-          </div>              
+            <label for="post-image-input">Image Link</label>
+            <input type="text" id="post-image-input">
+          </div>
           <div class="post-input-element">
             <label for="post-text-input">Post Caption</label>
             <textarea id="post-text-input"></textarea>
