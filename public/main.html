@@ -1,3 +1,99 @@
+<!DOCTYPE html>
 <html>
+  <head>
+
+    <meta charset="utf-8">
+    <title>Spontanigram</title>
+
+    <!-- This is a 3rd-party stylesheet to make available the font family to be used for this page ("Roboto"). -->
+    <!-- Probably going to be changed in the future.-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
+
+    <!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
+    <!-- Probably going to be changed in the future.-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css" media="screen">
+
+    <script src="index.js" charset="utf-8" defer></script>
+
+  </head>
+
+  <body>
+
+    <header>
+      <!-- The <i> tag below includes the bullhorn icon from Font Awesome -->
+      <!-- Probably going to be changed in the future.-->
+      <a href="#"><h1 class="site-title"><i class="far fa-hand-lizard"></i> tweeter</h1></a>
+
+      <nav class="navbar">
+        <ul class="navlist">
+           <!-- Used to navigate to top of page.--> 
+          <li class="navitem navlink active"><a href="#">Home</a></li>
+          <li class="navitem navbar-search">
+            <input type="text" id="navbar-search-input" placeholder="Search...">
+            <button type="button" id="navbar-search-button"><i class="fas fa-search"></i></button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="post-container">
+
+      <article class="post">
+        <div class="post-icon">
+          <!-- Probably going to be changed in the future.-->
+          <i class="fas fa-bullhorn"></i>
+        </div>
+        <p class="post-author">
+            Evets841
+        </p>
+        <div class="post-content">
+          <div class="post-image">
+             <img src="/Test-Imgs/SteveBezek.png" >
+          </div>
+          <p class="post-caption"  >
+            Finished my first year at Berkeley. #GOBEARS
+          </p>  
+        </div>
+      </article>
+
+    </main>
+    <!-- Probably going to be changed in the future.-->
+    <button type="button" id="create-post-button"><i class="fas fa-bullhorn"></i></button>
+
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="create-twit-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Create a Post</h3>
+          <button type="button" class="modal-close-button">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="post-input-element">
+            <label for="post-attribution-input">Author</label>
+            <input type="text" id="post-attribution-input">
+          </div>
+          <div class="post-input-element">
+            <label for="post-attribution-input">Image Link</label>
+            <input type="text" id="post-attribution-input">
+          </div>              
+          <div class="post-input-element">
+            <label for="post-text-input">Post Caption</label>
+            <textarea id="post-text-input"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="modal-cancel-button">Cancel</button>
+          <button type="button" class="modal-accept-button">Create Post</button>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
 
 </html>
