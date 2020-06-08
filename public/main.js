@@ -1,3 +1,8 @@
+const fs = require('fs');
+
+var allPosts = [];
+var allComments = [];
+
 function insertNewComment(post, commentTxt, commentAuthor){
 
   commentContext = {
@@ -9,6 +14,7 @@ function insertNewComment(post, commentTxt, commentAuthor){
 
   var commentPost = document.getElementsByClassName('post')[i];
   commentPost = insertAdjacentHTML('beforeend', commentHtml);
+  
 }
 
 function insertNewPost(postAuthor, postURL, postCaption) {
@@ -23,7 +29,8 @@ function insertNewPost(postAuthor, postURL, postCaption) {
 
   var postContainer = document.querySelector('main.post-container');
   postContainer.insertAdjacentHTML('beforeend', postHtml);
-
+  let data = JSON.stringify(postContext);
+  fs.writeFuleSync('data.json',data);
   /*
   var postElem = document.createElement('article');
   postElem.classList.add('post');
@@ -68,9 +75,6 @@ function deletePost(){
   var thisPost = allPosts.length-1;
   document.removeChild(allPosts[thisPost]);
 }
-
-var allPosts = [];
-var allComments = [];
 
 function modalAcceptClick() {
 
