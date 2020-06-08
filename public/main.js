@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 var allPosts = [];
 var allComments = [];
 
@@ -29,8 +27,6 @@ function insertNewPost(postAuthor, postURL, postCaption) {
 
   var postContainer = document.querySelector('main.post-container');
   postContainer.insertAdjacentHTML('beforeend', postHtml);
-  let data = JSON.stringify(postContext);
-  fs.writeFuleSync('data.json',data);
   /*
   var postElem = document.createElement('article');
   postElem.classList.add('post');
