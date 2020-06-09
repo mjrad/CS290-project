@@ -65,6 +65,12 @@ function insertNewPost(postAuthor, postURL, postCaption) {
   */
 }
 
+$(".like_button button").on("click", function() {
+	var $count = $(this).parent().find('.count');
+	$count.html($count.html() * 1+1);
+}};
+
+
 
 function deletePost(){
   console.log('You Pressed DELETE POST');
