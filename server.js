@@ -13,6 +13,9 @@ app.set('view engine', 'handlebars');
 //sets static domain as public
 app.use(express.static('public'));
 
+//Parse for json response
+app.use(express.json());
+
 //Called whenever website is referenced without any arguments
 app.get('', function (req, res, next) {
   res.status(200).render('partials/postContainer', {
@@ -20,16 +23,35 @@ app.get('', function (req, res, next) {
   });
 });
 
+
 //Called when a specific post is indexed.
 app.get('/posts/:posted', function (req, res, next) {
-    var posted = req.params.posted.toLowerCase();
-    console.log("posted data ==" , posted[0]);
+    var posted = req.params.posted;
     console.log(data[posted]);
     if (data[posted]) {
       res.status(200).render('partials/postContainer', data[posted]);
     } else {
       res.status(404).render('partials/404');
     }
+});
+
+app.post('/addPost/:posted',function(req,res,next){
+  var posted = req.params.posted;
+  if(data[posted]){
+    if(req.body && req.body.url && req.body.author && req.body.caption && req.body.comments){
+        data[posted].push({ 
+        author: req.body.author,
+        url : req.body.url,
+        caption: req.body.caption,
+        comments : req.body.comments
+      });
+  res.status(200).send("Post added successfully");
+}else{
+  res.status(400).send("Post need author, url, caption, and comments array");
+}
+}else{
+  next();
+}
 });
 
 //called when user ask for site not in index

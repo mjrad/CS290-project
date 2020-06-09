@@ -81,6 +81,18 @@ function modalAcceptClick() {
 
   if (postAuthor && postURL && postCaption) {
 
+    var tmp = document.getElementsByClassName('post');
+    var request = new XMLHttpRequest();
+    var requestUrl = "/addPost/" + tmp.length; 
+    var emptyComments = [];
+    request.open('POST',requestUrl);
+    var requestBody = JSON.stringify({
+      author: postAuthor,
+      url : postURL,
+      caption: postCaption,
+      comments : emptyComments
+    });
+
     allPosts.push({
       author: postAuthor,
       url: postURL,
@@ -156,7 +168,6 @@ function hideCommentModal() {
 function showPostModal() {
   var modalBackdrop = document.getElementById('post-modal-backdrop');
   var createPostModal = document.getElementById('create-post-modal');
-  console.log(modalBackdrop);
   console.log("Attempting to unhide");
   modalBackdrop.classList.remove('hidden');
   createPostModal.classList.remove('hidden');
