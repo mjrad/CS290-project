@@ -130,14 +130,46 @@ img {
 
 }
 
-#create-like-button  {
-    
-	
+.delete {
+	position: absolute;
+	left: 95%;
+    top: 1%;
+    font-size: 20px;
 }
 
-input:checked + create-like-button {
+#delete {
+    font-size: 20px;
+    
+}
+
+.like-button-container {
+    position: absolute;
+    transform: translate(-50%, -50);
+    border-raidus: 50px; 
+    background-color: #fafafa;
+    bottom: 1%;
+    left: 2%; 
+}
+
+#likeButton {
     color: red;
-	
+    font-size: 20px;	
+    background-color: white;
+   
+}
+
+#comment-expand-button {
+    position: absolute;
+    left: 50%;
+    font-size: 20px;
+    bottom: 1%;
+}
+
+#comment-respond-button {
+    position: absolute;
+    font-size: 20px;
+    right: 700%;
+    bottom: 1%;
 }
 
 #create-post-button {
