@@ -95,12 +95,9 @@ body {
 }
 
 .post-image {
-	max-width: 500px;
+	max-width: 550px;
 	max-height: 1000px;
 	border:none;
-	margin-right: 0px;
-	padding-right: 0px;
-	margin-left: 25px;
 }
 
 .post-author {
