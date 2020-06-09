@@ -1,7 +1,7 @@
 .site-title {
-	margin: 0; 
+	margin: 0;
 	background-color: pink;
-	color: white; 
+	color: white;
 	font-weight: 200;
 	padding-top: 15px;
 	padding-bottom:15px;
@@ -15,7 +15,7 @@ a {
 }
 
 a:focus {
-    outline: none; 
+    outline: none;
 
 }
 
@@ -29,7 +29,7 @@ body {
 
 .navbar {
 	background-color: lightblue;
-	overflow: hidden; 
+	overflow: hidden;
 	font-size: 25px;
 	text-align: center;
 	padding-left: 300px;
@@ -42,12 +42,12 @@ body {
 
 .navitem {
 	font-weight: 700;
-	display: inline-block; 
+	display: inline-block;
 	padding: 10px 20px;
 }
 
 .navitem.navbar-search {
-    float: right; 
+    float: right;
 }
 
 #navbar-search-input {
@@ -76,58 +76,56 @@ body {
 }
 
 .post-caption {
-    margin-top: -4px;
-    border-bottom: 2px solid lightgrey;
+    margin-top: 10px;
+		margin-bottom: 10px;
+		padding: 0px;
     font-size: 20px;
 }
 
 img {
-    max-width: 550px; 
+    max-width: 550px;
 }
 
 .post {
 	border-radius: 0;
 	background-color: white;
 	border: 2px solid lightgrey;
-	padding-bottom: 20px;
 	width: 550px;
     position: relative;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .post-image {
 	max-width: 500px;
-	max-height: 500p
-
+	max-height: 1000px;
+	border:none
 }
 
 .post-author {
 	position: relative;
 	bottom: auto;
-	left 70px; 
-	margin-top: 8px;
-	text-allign: right;
+	left: 10px;
+	margin-top: 10px;
 	font-weight: bold;
 }
 
 .post-icon {
 	position: relative;
+	padding-top: 10px;
+	padding-left:10px;
 	bottom: auto;
 	left: auto;
 }
 
 .post-caption {
-    border-top: 2px solid lightgrey;
-    padding-bottom: 50px;
-        
+    padding-bottom: 30px;
+		padding-left: 10px;
 }
 
 .comments-section  {
     margin-top: 20px
-
 }
 
 .delete {
@@ -137,25 +135,28 @@ img {
     font-size: 20px;
 }
 
-#delete {
+#delete-button {
     font-size: 20px;
-    
+		height: 20px;
+		width: 20px;
+		margin-right: 10px;
+		margin-top: 5px;
 }
 
 .like-button-container {
     position: absolute;
     transform: translate(-50%, -50);
-    border-raidus: 50px; 
     background-color: #fafafa;
     bottom: 1%;
-    left: 2%; 
+    left: 2%;
 }
 
 #likeButton {
     color: red;
-    font-size: 20px;	
+    font-size: 20px;
     background-color: white;
-   
+		height: 40px;
+		width: 60px;
 }
 
 #comment-expand-button {
@@ -163,6 +164,8 @@ img {
     left: 50%;
     font-size: 20px;
     bottom: 1%;
+		height: 40px;
+		width: 60px;
 }
 
 #comment-respond-button {
@@ -170,6 +173,8 @@ img {
     font-size: 20px;
     right: 700%;
     bottom: 1%;
+		height: 40px;
+		width: 60px;
 }
 
 #create-post-button {
@@ -257,4 +262,22 @@ img {
   padding: 10px;
   margin-right: 20px;
   cursor: pointer;
+}
+
+button {
+	border: none;
+	background: none;
+	padding: 0;
+}
+
+button:focus {
+	border: none;
+	background: none;
+	padding: 0;
+}
+
+button:active {
+	border: none;
+	background: none;
+	padding: 0;
 }
