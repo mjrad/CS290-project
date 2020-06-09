@@ -156,6 +156,7 @@ function showPostModal() {
   var modalBackdrop = document.getElementById('post-modal-backdrop');
   var createPostModal = document.getElementById('create-post-modal');
 
+  console.log("Attempting to unhide");
   modalBackdrop.classList.remove('hidden');
   createPostModal.classList.remove('hidden');
 }
@@ -258,7 +259,8 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   for (var i = 0; i < allPosts.length; i++){
-    var comRespond = allPosts[i].getElementById('comment-respond-button');
+    var tmp = allPosts[i];
+    var comRespond = tmp.getElementById('comment-respond-button');
     if (comRespond) {
       comRespond.addEventListener('click', showCommentModal);
     }

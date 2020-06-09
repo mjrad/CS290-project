@@ -8,8 +8,7 @@ templates['postContainer'] = template({"1":function(container,depth0,helpers,par
         return undefined
     };
 
-  return "     <l1>Making a Post:</l1>\r\n"
-    + ((stack1 = container.invokePartial(lookupProperty(partials,"post"),depth0,{"name":"post","data":data,"indent":"     ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
+  return ((stack1 = container.invokePartial(lookupProperty(partials,"post"),depth0,{"name":"post","data":data,"indent":"     ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -19,7 +18,7 @@ templates['postContainer'] = template({"1":function(container,depth0,helpers,par
     };
 
   return "\r\n\r\n\r\n<main class=\"post-container\">\r\n\r\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"totalPost") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":0},"end":{"line":9,"column":9}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"totalPost") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":0},"end":{"line":8,"column":9}}})) != null ? stack1 : "")
     + "\r\n</main>\r\n\r\n<button type=\"button\" id=\"create-post-button\"><i class=\"fas fa-camera\"></i></button>\r\n\r\n<div id=\"post-modal-backdrop\" class=\"hidden\"></div>\r\n<div id=\"create-post-modal\" class=\"hidden\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <div class=\"modal-header\">\r\n      <h3>Create a Post</h3>\r\n      <button type=\"button\" class=\"modal-close-button\">&times;</button>\r\n    </div>\r\n\r\n    <div class=\"modal-body\">\r\n      <div class=\"post-input-element\">\r\n        <label for=\"post-author-input\">Author</label>\r\n        <input type=\"text\" id=\"post-author-input\">\r\n      </div>\r\n      <div class=\"post-input-element\">\r\n        <label for=\"post-image-input\">Image Link</label>\r\n        <input type=\"text\" id=\"post-image-input\">\r\n      </div>\r\n      <div class=\"post-input-element\">\r\n        <label for=\"post-text-input\">Post Caption</label>\r\n        <textarea id=\"post-text-input\"></textarea>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"modal-footer\">\r\n      <button type=\"button\" class=\"modal-cancel-button\">Cancel</button>\r\n      <button type=\"button\" class=\"modal-accept-button\">Create Post</button>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n";
 },"usePartial":true,"useData":true});
 })();

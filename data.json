@@ -1,5 +1,5 @@
 {
-  "post1" :{
+  "0" :{
     "author": "Evets841",
     "url": "/test-Imgs/SteveBezek.png",
     "caption": "Finished my first year at Berkeley. #GOBEARS",
@@ -15,7 +15,7 @@
     ]
   },
 
-  "post2": {
+  "1" : {
     "author": "test",
     "url": "test-Imgs/SteveBezek.png",
     "caption": "cloned post",

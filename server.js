@@ -1,40 +1,38 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
-var data = require('./data');
+const data = require('./data');
 
 var app = express();
 var port = process.env.PORT || 3000;
 
+//Renders default layout as main.handlebars template 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+//sets static domain as public
 app.use(express.static('public'));
 
+//Called whenever website is referenced without any arguments
 app.get('', function (req, res, next) {
   res.status(200).render('partials/postContainer', {
     totalPost : data 
   });
-  console.log(data);
-  //res.status(200).sendFile(__dirname + '/public/main.html');
 });
 
-var postedPosts = [
-  '0',
-  '1'
-];
-
+//Called when a specific post is indexed.
 app.get('/posts/:posted', function (req, res, next) {
     var posted = req.params.posted.toLowerCase();
-    if (postedPosts.indexOf(posted) >= 0) {
-      res.status(200).render('partials/post', data[posted]);
-      //res.status(200).sendFile(__dirname + '/public/main.html');
+    console.log("posted data ==" , posted[0]);
+    console.log(data[posted]);
+    if (data[posted]) {
+      res.status(200).render('partials/postContainer', data[posted]);
     } else {
       res.status(404).render('partials/404');
-      //res.status(200).sendFile(__dirname + '/public/404.html');
     }
 });
 
+//called when user ask for site not in index
 app.get('*', function (req, res, next) {
   res.status(404).render('partials/404');
 });
