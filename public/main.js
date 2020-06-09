@@ -65,11 +65,18 @@ function insertNewPost(postAuthor, postURL, postCaption) {
   */
 }
 
-$(".like_button button").on("click", function() {
-	var $count = $(this).parent().find('.count');
-	$count.html($count.html() * 1+1);
-}};
+var likeButton = document.getElementById('likeButton');
 
+function Toggle() {  
+  if(likeButton.classList.contains("far")) {
+    likeButton.classList.remove("far");
+    likeButton.classList.add("fas"); 
+  }
+  else {
+    likeButton.classList.remove("fas");
+    likeButton.classList.add("far"); 
+}
+}
 
 
 function deletePost(){
