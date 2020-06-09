@@ -12,7 +12,7 @@ function insertNewComment(post, commentTxt, commentAuthor){
 
   var commentPost = document.getElementsByClassName('post')[i];
   commentPost = insertAdjacentHTML('beforeend', commentHtml);
-  
+
 }
 
 function insertNewPost(postAuthor, postURL, postCaption) {
@@ -27,6 +27,7 @@ function insertNewPost(postAuthor, postURL, postCaption) {
 
   var postContainer = document.querySelector('main.post-container');
   postContainer.insertAdjacentHTML('beforeend', postHtml);
+  eventButtons();
   /*
   var postElem = document.createElement('article');
   postElem.classList.add('post');
@@ -65,26 +66,6 @@ function insertNewPost(postAuthor, postURL, postCaption) {
   */
 }
 
-var likeButton = document.getElementById('likeButton');
-
-function Toggle() {  
-  if(likeButton.classList.contains("far")) {
-    likeButton.classList.remove("far");
-    likeButton.classList.add("fas"); 
-  }
-  else {
-    likeButton.classList.remove("fas");
-    likeButton.classList.add("far"); 
-}
-}
-
-
-function deletePost(){
-  console.log('You Pressed DELETE POST');
-  var thisPost = allPosts.length-1;
-  console.log(allPosts[thisPost]);
-  document.removeChild(allPosts[thisPost]);
-}
 
 function modalAcceptClick() {
 
@@ -96,7 +77,7 @@ function modalAcceptClick() {
 
     var tmp = document.getElementsByClassName('post');
     var request = new XMLHttpRequest();
-    var requestUrl = "/addPost/" + tmp.length; 
+    var requestUrl = "/addPost/" + tmp.length;
     var emptyComments = [];
     request.open('POST',requestUrl);
     var requestBody = JSON.stringify({
@@ -284,15 +265,6 @@ window.addEventListener('DOMContentLoaded', function () {
     searchInput.addEventListener('input', doSearchUpdate);
   }
 
-    var comRespond = document.querySelectorAll('comment-respond-button');
-    comRespond.forEach(item => {
-      item.addEventListener('click', showCommentModal);
-    });
-    var expandComments = document.querySelectorAll('comment-expand-button');
-     expandComments.forEach(item => {
-      expandComments.addEventListener('click', toggleComments);
-      });
-
   var comModalCloseButton = document.querySelector('#create-comment-modal .com-modal-close-button');
   if (comModalCloseButton) {
     comModalCloseButton.addEventListener('click', hideCommentModal);
@@ -308,9 +280,46 @@ window.addEventListener('DOMContentLoaded', function () {
       comModalAcceptButton.addEventListener('click', comModalAcceptClick);
   }
 
-  var postDeleteButton = document.querySelectorAll('delete-post');
-  postDeleteButton.forEach(item => {
-    item.addEventListener('click', deletePost);
+//FOR EACH POST, ATTACH A HANDLER EACH BUTTON
+  allPosts.forEach(function (thisPost) {
+    //LIKE POST BUTTON
+    var likeButton = thisPost.getElementById('likeButton');
+    if (likeButton){
+      likeButton.addEventListener('click', toggle(likeButton));
+    }
+    //SHOW COMMENTS BUTTON
+    var commentShow = thisPost.getElementById('comment-expand-button');
+    if (commentShow){
+      commentShow.addEventListener('click', toggleComments());
+    }
+    //ADD COMMENT BUTTON
+    var addCommentButton = thisPost.getElementById('comment-respond-button');
+    if (addCommentButton){
+      addCommentButton.addEventListener('click', showCommentModal());
+    }
+
+    //DELETE POST BUTTON
+    var deleteButton = thisPost.getElementById('delete-button');
+    if (deleteButton){
+      deleteButton.addEventListener('click', deletePost(allPosts[i]));
+    }
   });
-  
+
 });
+
+function toggle(likeButton) {
+  if(likeButton.classList.contains("far")) {
+    likeButton.classList.remove("far");
+    likeButton.classList.add("fas");
+  }
+  else {
+    likeButton.classList.remove("fas");
+    likeButton.classList.add("far");
+  }
+}
+
+function deletePost(thisPost){
+  console.log('You Pressed DELETE POST');
+  console.log(allPosts[thisPost]);
+  document.removeChild(allPosts[thisPost]);
+}
