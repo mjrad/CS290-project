@@ -82,19 +82,20 @@ body {
 }
 
 img {
-    max-width: 450px; 
+    max-width: 550px; 
 }
 
 .post {
 	border-radius: 0;
 	background-color: white;
 	border: 2px solid lightgrey;
-	padding-top: auto;
 	padding-bottom: 20px;
-	width: 450px;
-	height: auto;
-	margin: auto;
-	
+	width: 550px;
+    position: relative;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .post-image {
@@ -129,7 +130,12 @@ img {
 
 }
 
-#create-like-button {
+#create-like-button  {
+    
+	
+}
+
+input:checked + create-like-button {
     color: red;
 	
 }
