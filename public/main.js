@@ -69,6 +69,7 @@ function insertNewPost(postAuthor, postURL, postCaption) {
 function deletePost(){
   console.log('You Pressed DELETE POST');
   var thisPost = allPosts.length-1;
+  console.log(allPosts[thisPost]);
   document.removeChild(allPosts[thisPost]);
 }
 
@@ -127,10 +128,10 @@ function toggleComments() {
   console.log('button pressed');
   var toggle = document.getElementsByClassName('comments-section');
   if (toggle.classList.contains('hidden')) {
-    toggle.classList.remove('hidden')
+    toggle.classList.remove('hidden');
   }
   else {
-    toggle.classList.add('hidden')
+    toggle.classList.add('hidden');
   }
 }
 
@@ -155,7 +156,7 @@ function hideCommentModal() {
 function showPostModal() {
   var modalBackdrop = document.getElementById('post-modal-backdrop');
   var createPostModal = document.getElementById('create-post-modal');
-
+  console.log(modalBackdrop);
   console.log("Attempting to unhide");
   modalBackdrop.classList.remove('hidden');
   createPostModal.classList.remove('hidden');
@@ -258,18 +259,14 @@ window.addEventListener('DOMContentLoaded', function () {
     searchInput.addEventListener('input', doSearchUpdate);
   }
 
-  for (var i = 0; i < allPosts.length; i++){
-    var tmp = allPosts[i];
-    var comRespond = tmp.getElementById('comment-respond-button');
-    if (comRespond) {
-      comRespond.addEventListener('click', showCommentModal);
-    }
-
-    var expandComments = allPosts[i].getElementById('comment-expand-button');
-    if (expandComments) {
+    var comRespond = document.querySelectorAll('comment-respond-button');
+    comRespond.forEach(item => {
+      item.addEventListener('click', showCommentModal);
+    });
+    var expandComments = document.querySelectorAll('comment-expand-button');
+     expandComments.forEach(item => {
       expandComments.addEventListener('click', toggleComments);
-    }
-  }
+      });
 
   var comModalCloseButton = document.querySelector('#create-comment-modal .com-modal-close-button');
   if (comModalCloseButton) {
@@ -286,9 +283,9 @@ window.addEventListener('DOMContentLoaded', function () {
       comModalAcceptButton.addEventListener('click', comModalAcceptClick);
   }
 
-  var postDeleteButton = allPosts.getElementById('delete-post');
-  if(postDeleteButton) {
-    postDeleteButton.addEventListener('click', deletePost);
-  }
-
+  var postDeleteButton = document.querySelectorAll('delete-post');
+  postDeleteButton.forEach(item => {
+    item.addEventListener('click', deletePost);
+  });
+  
 });
