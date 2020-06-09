@@ -23,7 +23,8 @@ body {
 	margin: 0;
 	margin-bottom: 0;
 	font-family: 'Helvetica Neue', sans-serif;
-    background-color: azure;
+	background-color: azure;
+
 }
 
 .navbar {
@@ -69,14 +70,9 @@ body {
 
 .post-containter {
 	background-color: pink;
-	margin-bottom: 0;
-	border-bottom: 0;
-	padding-bottom: 0;
-	padding: 100px;
-	padding-top:100px;
-	min-width: 80%;
 	display: flex;
 	flex-wrap: center;
+
 }
 
 .post-caption {
@@ -85,19 +81,27 @@ body {
     font-size: 20px;
 }
 
+img {
+    max-width: 450px; 
+}
+
 .post {
-	border-radius: 0; 
+	border-radius: 0;
 	background-color: white;
 	border: 2px solid lightgrey;
 	padding-top: auto;
 	padding-bottom: 20px;
-	padding: auto;
+	width: 450px;
+	height: auto;
 	margin: auto;
-	min-width: fit-content;
-	max-width: fit-content;
-	display: center; 
+	
 }
 
+.post-image {
+	max-width: 500px;
+	max-height: 500p
+
+}
 
 .post-author {
 	position: relative;
@@ -117,8 +121,7 @@ body {
 .post-caption {
     border-top: 2px solid lightgrey;
     padding-bottom: 50px;
-    
-    
+        
 }
 
 .comments-section  {
