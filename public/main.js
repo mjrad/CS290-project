@@ -171,6 +171,7 @@ function showPostModal() {
   console.log("Attempting to unhide");
   modalBackdrop.classList.remove('hidden');
   createPostModal.classList.remove('hidden');
+  window.scrollTo(0,document.body.scrollHeight);
 }
 
 function clearPostInputValues() {
