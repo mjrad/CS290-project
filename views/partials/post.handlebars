@@ -17,14 +17,14 @@
             {{caption}}
           </p>
         </div>
-        <div class="like">
-          <button type="button" id="comment-expand-button"><i class="fa fa-heart"></i></button>
+        <div class="like-button-container">
+          <i onclick = "Toggle()" id="likeButton" class="far fa-heart"></i>
         </div>
         <div class="comments-section">
-          <button type="button" id="comment-expand-button"><i class="fa fa-comments"></i></button>
+          <button type="button" id="comment-expand-button" class="fa fa-comments"</button>
           {{#each data}}
                {{> comment}}
           {{/each}}
-          <button type="button" id="comment-respond-button"><i class="fa fa-comment"></i></button>
+          <i type="button" id="comment-respond-button"><i class="fa fa-comment"></i></i>
         </div>
       </article>
