@@ -1,7 +1,7 @@
-[
-  {
+{
+  "post1" :{
     "author": "Evets841",
-    "url": "test-Imgs/SteveBezek.jpg",
+    "url": "/test-Imgs/SteveBezek.png",
     "caption": "Finished my first year at Berkeley. #GOBEARS",
     "comments": [
       {
@@ -15,9 +15,9 @@
     ]
   },
 
-  {
+  "post2": {
     "author": "test",
-    "url": "test-Imgs/SteveBezek.jpg",
+    "url": "test-Imgs/SteveBezek.png",
     "caption": "cloned post",
     "comments": [
       {
@@ -26,4 +26,4 @@
       }
     ]
   }
-]
+}

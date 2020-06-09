@@ -12,7 +12,10 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 app.get('', function (req, res, next) {
-  res.status(200).render('partials/postContainer', data);
+  res.status(200).render('partials/postContainer', {
+    totalPost : data 
+  });
+  console.log(data);
   //res.status(200).sendFile(__dirname + '/public/main.html');
 });
 
