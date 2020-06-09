@@ -25,5 +25,29 @@
         "commentAuthor": "tester"
       }
     ]
+  },
+
+  "2" : {
+    "author": "cat",
+    "url": "test-Imgs/Cat.png",
+    "caption": "a cat post",
+    "comments": [
+      {
+        "commentText": "nice cat",
+        "commentAuthor": "catlover"
+      }
+    ]
+  },
+
+  "3" : {
+    "author": "dog",
+    "url": "test-Imgs/Dog.png",
+    "caption": "a dog post",
+    "comments": [
+      {
+        "commentText": "nice dog",
+        "commentAuthor": "doglover"
+      }
+    ]
   }
 }
