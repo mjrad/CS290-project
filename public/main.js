@@ -1,20 +1,3 @@
-var allPosts = [];
-var allComments = [];
-
-function insertNewComment(postFromButton, commentTxt, commentAuthor){
-
-  commentContext = {
-    text: commentTxt,
-    author: commentAuthor
-  };
-
-  var commentHtml = Handlebars.templates.comment(commentContext);
-
-  var commentPost = document.getElementsByClassName('post');
-  commentPost[postFromButton] = insertAdjacentHTML('beforeend', commentHtml);
-
-}
-
 function insertNewPost(postAuthor, postURL, postCaption) {
 
   postContext = {
@@ -22,48 +5,27 @@ function insertNewPost(postAuthor, postURL, postCaption) {
     url: postURL,
     caption: postCaption
   };
-
   var postHtml = Handlebars.templates.post(postContext);
 
   var postContainer = document.querySelector('main.post-container');
   postContainer.insertAdjacentHTML('beforeend', postHtml);
-  /*
-  var postElem = document.createElement('article');
-  postElem.classList.add('post');
+  /*function insertNewComment(postFromButton, commentTxt, commentAuthor){
 
-  var postIconElem = document.createElement('div');
-  postIconElem.classList.add('post-icon');
-  postIconElem.innerHTML = '<i class="fa fa-camera"></i>';
-  postElem.appendChild(postIconElem);
+    commentContext = {
+      text: commentTxt,
+      author: commentAuthor
+    };
 
-  var postContentElem = document.createElement('div');
-  postContentElem.classList.add('post-content');
-  postElem.appendChild(postContentElem);
+    var commentHtml = Handlebars.templates.comment(commentContext);
 
-  var postAuthorNode = document.createTextNode(postAuthor);
-  var postAuthorElem = document.createElement('p');
-  postAuthorElem.classList.add('post-author');
-  postAuthorElem.appendChild(postAuthorNode);
-  postContentElem.appendChild(postAuthorElem);
+    var commentPost = document.getElementsByClassName('post');
+    commentPost[postFromButton] = insertAdjacentHTML('beforeend', commentHtml);
 
-  var postURLNode = document.createElement('img');
-  postURLNode.src = postURL;
-  var postURLElem = document.createElement('div');
-  postURLElem.classList.add('post-image');
-  postURLElem.appendChild(postURLNode);
-  postContentElem.appendChild(postURLElem);
-
-  var postCaptionNode = document.createTextNode(postCaption);
-  postCaption.text = postCaption;
-  var postCaptionElem = document.createElement('p');
-  postCaptionElem.classList.add('post-caption');
-  postCaptionElem.appendChild(postCaptionNode);
-  postContentElem.appendChild(postCaptionElem);
-
-  var postContainer = document.querySelector('main.post-container');
-  postContainer.appendChild(postElem);
-  */
+  }*/
 }
+
+var allPosts = [];
+var allComments = [];
 
 
 function modalAcceptClick() {
@@ -222,10 +184,12 @@ function parsePostElem(postElem) {
   post.author = postAuthorElem.textContent.trim();
 
   var postURLElem = postElem.querySelector('.post-image');
-  post.url = postURLElem.textContent.trim();
+  console.log(postURLElem);
+  post.url = postURLElem.src;
+  console.log('URL: ', post.url);
 
   var postCaptionElem = postElem.querySelector('.post-caption');
-  post.caption = postAuthorElem.textContent.trim();
+  post.caption = postCaptionElem.textContent.trim();
 
   return post;
 }
@@ -287,7 +251,6 @@ window.addEventListener('DOMContentLoaded', function () {
   //for each button EXCEPT the 1st button (NAVBAR SEARCH) and the last 3 (ADD POST/COMMENT)
   for (var i = 1; i < buttons.length-6; i++) {
     //for the 4 buttons in each post
-    console.log('there are ' , buttons.length-4, 'buttons')
     for (var group = 0; group <= 3; group++) {
       var deleteButton = buttons[i];
       var likeButton = buttons[i+1];
@@ -297,13 +260,9 @@ window.addEventListener('DOMContentLoaded', function () {
       var postFromButton = Math.floor((i-1)/3);
       //add the listeners
       likeButton.addEventListener('click', toggle);
-      console.log('added listener to LIKE at ', postFromButton, likeButton);
       commentShow.addEventListener('click', toggleComments, commentShow);
-      console.log('added listener to SHOW COMMENTS at ', postFromButton);
       addCommentButton.addEventListener('click', showCommentModal, addCommentButton);
-      console.log('added listener to ADD COMMENT at ', postFromButton);
       deleteButton.addEventListener('click', deletePost);
-      console.log('added listener to DELETE at ', postFromButton, deleteButton);
       //jump to the next set of four buttons
       i += 4;
     }
