@@ -1,7 +1,7 @@
 var allPosts = [];
 var allComments = [];
 
-function insertNewComment(post, commentTxt, commentAuthor){
+function insertNewComment(postFromButton, commentTxt, commentAuthor){
 
   commentContext = {
     text: commentTxt,
@@ -10,8 +10,8 @@ function insertNewComment(post, commentTxt, commentAuthor){
 
   var commentHtml = Handlebars.templates.comment(commentContext);
 
-  var commentPost = document.getElementsByClassName('post')[i];
-  commentPost = insertAdjacentHTML('beforeend', commentHtml);
+  var commentPost = document.getElementsByClassName('post');
+  commentPost[postFromButton] = insertAdjacentHTML('beforeend', commentHtml);
 
 }
 
@@ -27,7 +27,6 @@ function insertNewPost(postAuthor, postURL, postCaption) {
 
   var postContainer = document.querySelector('main.post-container');
   postContainer.insertAdjacentHTML('beforeend', postHtml);
-  eventButtons();
   /*
   var postElem = document.createElement('article');
   postElem.classList.add('post');
@@ -103,17 +102,18 @@ function modalAcceptClick() {
 function comModalAcceptClick(postNum) {
 
   var commentTxt = document.getElementById('comment-text-input').value;
-  var commentauthor = document.getElementById('comment-author-input').value;
+  var commentAuthor = document.getElementById('comment-author-input').value;
 
   if (commentTxt && commentAuthor) {
 
-    allComments[postNum].push({
+    allComments.push({
       commentText: commentTxt,
       commentAuthor: commentAuthor
     });
   } else {
-    //alert('Cannot upload an incomplete comment!')
+    alert('Cannot upload an incomplete comment!')
   }
+  hideCommentModal();
 }
 
 function clearSearch() {
@@ -130,14 +130,15 @@ function showCommentModal() {
   createCommentModal.classList.remove('hidden');
 }
 
-function toggleComments() {
-  console.log('button pressed');
+function toggleComments(postFromButton) {
+  console.log('Toggle Comments pressed at ', postFromButton);
   var toggle = document.getElementsByClassName('comments-section');
-  if (toggle.classList.contains('hidden')) {
-    toggle.classList.remove('hidden');
+  console.log(toggle[postFromButton]);
+  if (toggle[postFromButton].classList.contains('hidden')) {
+    toggle[postFromButton].classList.remove('hidden');
   }
   else {
-    toggle.classList.add('hidden');
+    toggle[postFromButton].classList.add('hidden');
   }
 }
 
@@ -208,6 +209,7 @@ function doSearchUpdate() {
   allPosts.forEach(function (post) {
     if (postMatchesSearch(post, searchQuery)) {
       insertNewPost(post.author, post.url, post.caption);
+      //insertNewComment(post, comment.text, comment.author);
     }
   });
 }
@@ -281,33 +283,36 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
 //FOR EACH POST, ATTACH A HANDLER EACH BUTTON
-  allPosts.forEach(function (thisPost) {
-    //LIKE POST BUTTON
-    var likeButton = thisPost.getElementById('likeButton');
-    if (likeButton){
-      likeButton.addEventListener('click', toggle(likeButton));
+  var buttons = document.querySelectorAll("button");
+  //for each button EXCEPT the 1st button (NAVBAR SEARCH) and the last 3 (ADD POST/COMMENT)
+  for (var i = 1; i < buttons.length-6; i++) {
+    //for the 4 buttons in each post
+    console.log('there are ' , buttons.length-4, 'buttons')
+    for (var group = 0; group <= 3; group++) {
+      var deleteButton = buttons[i];
+      var likeButton = buttons[i+1];
+      var commentShow = buttons[i+2];
+      var addCommentButton = buttons[i+3];
+      //the function to access the proper post index for any given button is floor((i-1)/3)
+      var postFromButton = Math.floor((i-1)/3);
+      //add the listeners
+      likeButton.addEventListener('click', toggle);
+      console.log('added listener to LIKE at ', postFromButton, likeButton);
+      commentShow.addEventListener('click', toggleComments, commentShow);
+      console.log('added listener to SHOW COMMENTS at ', postFromButton);
+      addCommentButton.addEventListener('click', showCommentModal, addCommentButton);
+      console.log('added listener to ADD COMMENT at ', postFromButton);
+      deleteButton.addEventListener('click', deletePost);
+      console.log('added listener to DELETE at ', postFromButton, deleteButton);
+      //jump to the next set of four buttons
+      i += 4;
     }
-    //SHOW COMMENTS BUTTON
-    var commentShow = thisPost.getElementById('comment-expand-button');
-    if (commentShow){
-      commentShow.addEventListener('click', toggleComments());
-    }
-    //ADD COMMENT BUTTON
-    var addCommentButton = thisPost.getElementById('comment-respond-button');
-    if (addCommentButton){
-      addCommentButton.addEventListener('click', showCommentModal());
-    }
-
-    //DELETE POST BUTTON
-    var deleteButton = thisPost.getElementById('delete-button');
-    if (deleteButton){
-      deleteButton.addEventListener('click', deletePost(allPosts[i]));
-    }
-  });
+  }
 
 });
 
 function toggle(likeButton) {
+  console.log(likeButton, 'Like button pressed')
   if(likeButton.classList.contains("far")) {
     likeButton.classList.remove("far");
     likeButton.classList.add("fas");
@@ -318,8 +323,8 @@ function toggle(likeButton) {
   }
 }
 
-function deletePost(thisPost){
-  console.log('You Pressed DELETE POST');
-  console.log(allPosts[thisPost]);
-  document.removeChild(allPosts[thisPost]);
+function deletePost(postFromButton){
+  console.log('You are deleting post', postFromButton);
+  console.log(allPosts[postFromButton]);
+  document.removeChild(allPosts[postFromButton]);
 }
