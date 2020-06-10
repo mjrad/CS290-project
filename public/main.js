@@ -244,9 +244,10 @@ window.addEventListener('DOMContentLoaded', function () {
   if (comModalAcceptButton) {
       comModalAcceptButton.addEventListener('click', comModalAcceptClick);
   }
-
 //FOR EACH POST, ATTACH A HANDLER EACH BUTTON
   var buttons = document.querySelectorAll("button");
+  var tmp = 0;
+
   //for each button EXCEPT the 1st button (NAVBAR SEARCH) and the last 3 (ADD POST/COMMENT)
   for (var i = 1; i < buttons.length-6; i++) {
     //for the 4 buttons in each post
@@ -255,15 +256,30 @@ window.addEventListener('DOMContentLoaded', function () {
       var likeButton = buttons[i+1];
       var commentShow = buttons[i+2];
       var addCommentButton = buttons[i+3];
-      //the function to access the proper post index for any given button is floor((i-1)/3)
-      var postFromButton = Math.floor((i-1)/3);
       //add the listeners
-      likeButton.addEventListener('click', toggle);
-      commentShow.addEventListener('click', toggleComments, commentShow);
-      addCommentButton.addEventListener('click', showCommentModal, addCommentButton);
-      deleteButton.addEventListener('click', deletePost);
+      likeButton.addEventListener('click', function(){
+        console.log("event target",event.target); 
+        toggle(event.target)
+      });
+
+      console.log(tmp);
+      commentShow.addEventListener('click', function(){
+        console.log("Calling toggleComments with this val :",tmp); 
+        toggleComments(tmp-1);
+      });
+
+      addCommentButton.addEventListener('click', function(){
+        showCommentModal();
+      });
+      
+
+      deleteButton.addEventListener('click', function(){
+        console.log("event target",event.target);
+        deletePost();
+      });
       //jump to the next set of four buttons
       i += 4;
+      tmp ++;
     }
   }
 
@@ -281,7 +297,7 @@ function toggle(likeButton) {
   }
 }
 
-function deletePost(postFromButton){
+function deletePost(){
   console.log('You are deleting post', postFromButton);
   console.log(allPosts[postFromButton]);
   document.removeChild(allPosts[postFromButton]);
