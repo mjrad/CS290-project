@@ -35,7 +35,6 @@ function modalAcceptClick() {
   var postCaption = document.getElementById('post-text-input').value;
 
   if (postAuthor && postURL && postCaption) {
-
     var tmp = document.getElementsByClassName('post');
     var request = new XMLHttpRequest();
     var requestUrl = "/addPost/" + tmp.length;
@@ -47,7 +46,7 @@ function modalAcceptClick() {
       caption: postCaption,
       comments : emptyComments
     });
-
+    console.log(requestBody);
     allPosts.push({
       author: postAuthor,
       url: postURL,
