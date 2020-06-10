@@ -10,7 +10,7 @@
     "build404": "handlebars views/partials/404.handlebars -f public/404Template.handlebars",
     "buildPostContainer": "handlebars views/partials/postContainer.handlebars -f public/postContainerTemplate.handlebars",
     "buildPost": "handlebars views/partials/post.handlebars -f public/postTemplate.js",
-    "buildComment": "handlebars views/partials/comment.handlebars -f public/commentTemplate.handlebars",
+    "buildComment": "handlebars views/partials/comment.handlebars -f public/commentTemplate.js",
     "buildHeader": "handlebars views/partials/header.handlebars -f public/headerTemplate.handlebars",
     "prestart": "npm run buildMain && npm run build404 && npm run buildPostContainer && npm run buildPost && npm run buildComment && npm run buildHeader"
   },

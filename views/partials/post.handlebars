@@ -12,20 +12,21 @@
         <div class="post-content">
           <img src="{{url}}" class="post-image">
           <p class="post-caption">
-            {{caption}}
+             : {{caption}}
           </p>
         </div>
         <div class="like-button-container">
           <button type="button" id="likeButton"><i class="far fa-heart"></i></button>
         </div>
-        <button type="button" id="comment-expand-button"><i class="fa fa-comments"></i></button>
-        <button type="button" id="comment-respond-button"><i class="fa fa-comment"></i></button>
+        <div class="comment-button-container">
+          <button type="button" id="comment-expand-button"><i class="fa fa-comments"></i></button>
+          <button type="button" id="comment-respond-button"><i class="fa fa-comment"></i></button>
+        </div>
         <div class="comments-section">
-          <div class="post-container">
-         {{#each data}}
-               {{>comment}}
+          <div class="comment-container">
+          {{#each totalComment}}
+               {{> comment}}
           {{/each}}
           </div>
-         
         </div>
       </article>

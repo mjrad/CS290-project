@@ -20,6 +20,7 @@ app.use(express.json());
 app.get('', function (req, res, next) {
   res.status(200).render('partials/postContainer', {
     totalPost : data 
+
   });
 });
 

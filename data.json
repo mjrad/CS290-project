@@ -16,7 +16,7 @@
   },
 
   "1" : {
-    "author": "test",
+    "author": "Test",
     "url": "test-Imgs/SteveBezek.png",
     "caption": "cloned post",
     "comments": [
@@ -28,7 +28,7 @@
   },
 
   "2" : {
-    "author": "cat",
+    "author": "Cat",
     "url": "test-Imgs/Cat.png",
     "caption": "a cat post",
     "comments": [
@@ -40,7 +40,7 @@
   },
 
   "3" : {
-    "author": "dog",
+    "author": "Dog",
     "url": "test-Imgs/Dog.png",
     "caption": "a dog post",
     "comments": [
