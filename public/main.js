@@ -274,6 +274,7 @@ window.addEventListener('DOMContentLoaded', function () {
       
 
       deleteButton.addEventListener('click', function(){
+        var tmp = event.target;
         console.log("event target",event.target);
         deletePost();
       });
