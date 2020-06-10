@@ -50,6 +50,11 @@ body {
     float: right;
 }
 
+#navbar-search-input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
 #navbar-search-input {
   padding: 4px;
   font-size: 16px;
@@ -62,7 +67,7 @@ body {
 #navbar-search-button {
   margin-left: -5px;
   font-size: 16px;
-  background: none;
+  background: ;
   border: none;
   cursor: pointer;
 }
@@ -117,7 +122,7 @@ body {
 
 .post-caption {
     padding-bottom: 30px;
-		padding-left: 10px;
+	padding-left: 10px;
 }
 
 .comments-section  {
@@ -133,14 +138,18 @@ body {
 
 #delete-button {
     font-size: 20px;
-		height: 20px;
-		width: 20px;
-		margin-right: 10px;
-		margin-top: 5px;
+	height: 20px;
+	width: 20px;
+	margin-right: 10px;
+	margin-top: 5px;
 }
 
 #delete-button:hover {
 	cursor: pointer;
+}
+
+#delete-button:focus {
+	outline: none;
 }
 
 .like-button-container {
@@ -163,6 +172,10 @@ body {
     cursor: pointer;
 }
 
+#likeButton:focus {
+	outline: none;
+}
+
 #comment-expand-button {
     position: absolute;
     left: 50%;
@@ -174,6 +187,10 @@ body {
 
 #comment-expand-button {
 	cursor: pointer;
+}
+
+#comment-expand-button:focus {
+	outline: none;
 }
 
 #comment-respond-button {
@@ -189,6 +206,9 @@ body {
     cursor: pointer;
 }
 
+#comment-respond-button:focus {
+	outline: none;
+}
 
 #create-post-button {
     position: fixed;
@@ -205,6 +225,9 @@ body {
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+#create-post-button:focus {
+    outline: none;
+}
 
 #modal-backdrop {
   position: fixed;
@@ -278,6 +301,7 @@ body {
   font-size: 15px;
   border: 1px solid lightgrey;
   background-color: azure;
+  outline: none;
 }
 
 .post-input-element textarea {
@@ -312,16 +336,19 @@ body {
   background: none;
   padding: 0;
   cursor: pointer;
+  outline: none;
 }
 
 .modal-footer .modal-accept-button {
   background-color: pink;
   color: white;
+  outline: none;
 }
 
 .modal-footer .modal-cancel-button {
   background-color: pink;
   color: white;
+  outline: none;
 }
 
 button {
