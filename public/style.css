@@ -19,6 +19,18 @@ a:focus {
 
 }
 
+h2 {
+	display: block;
+	text-align: center;
+	position: relative;
+}
+
+h3 {
+	display: block;
+	text-align: center;
+	position: relative;
+}
+
 body {
 	margin: 0;
 	margin-bottom: 0;
