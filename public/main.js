@@ -65,6 +65,7 @@ function modalAcceptClick() {
     allPosts.insertAdjacentHTML('beforeend',newPost);
     clearSearch();
     hidePostModal();
+    clearPostInputValues();
   } else {
     alert('Cannot upload an incomplete post!')
   }
@@ -81,10 +82,12 @@ function comModalAcceptClick(postNum) {
       commentText: commentTxt,
       commentAuthor: commentAuthor
     });
+    clearSearch();
+    hideCommentModal();
+    clearCommentInputValues();
   } else {
     alert('Cannot upload an incomplete comment!')
   }
-  hideCommentModal();
 }
 
 function clearSearch() {
