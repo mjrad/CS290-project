@@ -28,13 +28,13 @@ var allPosts = [];
 var allComments = [];
 
 
-function modalAcceptClick() {
+function modalAcceptClick(){
 
   var postAuthor = document.getElementById('post-author-input').value;
   var postURL = document.getElementById('post-image-input').value;
   var postCaption = document.getElementById('post-text-input').value;
 
-  if (postAuthor && postURL && postCaption) {
+  if(postAuthor && postURL && postCaption) {
     var tmp = document.getElementsByClassName('post');
     var request = new XMLHttpRequest();
     var requestUrl = "/addPost/" + tmp.length;
@@ -46,13 +46,13 @@ function modalAcceptClick() {
       caption: postCaption,
       comments : emptyComments
     });
-
-    request.setRequestHeader(
+  }
+  request.setRequestHeader(
       'Content-Type',
       'application/json'
     );
-
-      request.addEventListener('load',function(event){
+    
+  request.addEventListener('load',function(event){
       if(event.target.status === 200){
         var postTemplate = Handlebars.templates.post;
         var newPost = postTemplate({
@@ -60,16 +60,22 @@ function modalAcceptClick() {
           url : postURL,
           caption : postCaption
         });
-      }});
 
-    allPosts.insertAdjacentHTML('beforeend',newPost);
-    clearSearch();
-    hidePostModal();
-    clearPostInputValues();
-  } else {
-    alert('Cannot upload an incomplete post!')
-  }
+      dom.insertAdjacentHTML('beforeend',newPost);
+    } else{
+    alert('Cannot upload an incomplete post!');
+   }
+   });
+   allPosts.push({
+    author: postAuthor,
+    url: postURL,
+    caption: postCaption
+  });
+   clearSearch();
+   hidePostModal();
+   clearPostInputValues();
 }
+
 
 function comModalAcceptClick(postNum) {
 
