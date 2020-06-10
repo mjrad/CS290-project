@@ -70,6 +70,7 @@ body {
   background: ;
   border: none;
   cursor: pointer;
+  outline: none;
 }
 
 .post-containter {
@@ -107,7 +108,7 @@ body {
 .post-author {
 	position: relative;
 	bottom: auto;
-	left: 10px;
+	left: 6px;
 	margin-top: 10px;
 	font-weight: bold;
 }
@@ -272,7 +273,6 @@ body {
   min-height: 300px;
   margin: 40px auto;
   background-color: white;
-  border-radius: 15px;
   border: 2px solid lightgrey;
 }
 
